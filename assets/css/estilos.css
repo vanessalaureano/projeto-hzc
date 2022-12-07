@@ -11,13 +11,6 @@ body {
     color: #ffffff;
 }
 
-@media screen and (min-width: 1440px) {
-    body {
-        display: grid;
-        grid-template-columns: auto 1fr;
-    }
-}
-
 /* CSS cabeçalho */
 
 .cabecalho {
@@ -48,55 +41,6 @@ body {
 }
 
 /* CSS menu lateral */
-
-@media screen and (min-width: 1440px) {
-    .cabecalho {
-        background-color: #1D232A;
-        display: grid;
-        grid-template-columns: 1fr auto;
-        column-gap: 32px;
-        padding: 16px 60px;
-        height: 80px;
-        box-sizing: border-box;
-        grid-column: 2;
-    }
-
-    .cabecalho_menu {
-        display: none;
-    }
-
-    .cabecalho_logo {
-        display: none;
-    }
-
-    .cabecalho-perfil {
-        display: grid;
-        grid-template-columns: repeat(3, auto);
-        column-gap: 8px;
-        align-items: center;
-        justify-self: flex-end;
-        color: #95999C;
-        padding: 8px 32px ;
-        border-right: 1px solid #95999C;
-    }
-
-    .cabecalho-perfil::before {
-        content: "";
-        display: block;
-        width: 32px;
-        height: 32px;
-        background-image: url(../img/profile_2.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
-
-    .cabecalho-perfil::after {
-        content: "\e90d";
-        color: #ffffff;
-        font-size: 1.5rem;
-    }
-}
 
 .menu-lateral {
     display: flex;
@@ -136,7 +80,7 @@ body {
 }
 
 .menu-lateral_link::before {
-    content: "";
+    content: "\e900";
     width: 24px;
     height: 24px;
     font-size: 24px;
@@ -168,15 +112,6 @@ body {
     content: "\e90a";
 }
 
-@media screen and (min-width: 1440px) {  
-    .menu-lateral {
-        position: static;
-        width: 200px;
-        grid-column: 1;
-        grid-row: 1 / span 2;
-    }
-}
-
 /* CSS principal */
 
 .principal {
@@ -185,29 +120,13 @@ body {
     gap: 16px;
 }
 
-@media screen and (min-width: 1440px) {  
-    .principal {
-        display: grid;
-        grid-template-columns: auto 1fr auto;
-        grid-template-areas: 
-            "titulo-pagina titulo-pagina titulo-pagina"
-            "destaque-video destaque-video videos-recentes"
-            "secao-videos secao-videos secao-videos"
-            "produtos-recentes destaque-produtos destaque-produtos"
-            "secao-produtos secao-produtos secao-produtos"
-        ;
-        column-gap: 32px;
-        padding: 16px 60px;
-        grid-column: 2;
-    }
-
-    .secao-titulo {
-        grid-column: span 4;
-    }
-}
-
 .titulo-pagina {
     font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.secao-titulo {
+    font-size: 1.2rem;
     font-weight: 700;
 }
 
@@ -224,6 +143,7 @@ body {
 
 .cartao-destaque {
     margin-bottom: 16px;
+    grid-column: span 2;
 }
 
 .cartao-conteudo {
@@ -292,7 +212,92 @@ body {
     display: none;
 }
 
-@media screen and (min-width: 1440px) {  
+.secao {
+    display: grid;
+    gap: 16px;
+}
+
+/* CSS Media Query */
+
+@media screen and (min-width: 1440px) {
+    body {
+        display: grid;
+        grid-template-columns: auto 1fr;
+    }
+
+    .cabecalho {
+        background-color: #1D232A;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        column-gap: 32px;
+        padding: 16px 60px;
+        height: 80px;
+        box-sizing: border-box;
+        grid-column: 2;
+    }
+
+    .cabecalho_menu {
+        display: none;
+    }
+
+    .cabecalho_logo {
+        display: none;
+    }
+
+    .cabecalho-perfil {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        column-gap: 8px;
+        align-items: center;
+        justify-self: flex-end;
+        color: #95999C;
+        padding: 8px 32px ;
+        border-right: 1px solid #95999C;
+    }
+
+    .cabecalho-perfil::before {
+        content: "";
+        display: block;
+        width: 32px;
+        height: 32px;
+        background-image: url(../img/profile_2.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .cabecalho-perfil::after {
+        content: "\e90d";
+        color: #ffffff;
+        font-size: 1.5rem;
+    }
+
+    .menu-lateral {
+        position: static;
+        width: 200px;
+        grid-column: 1;
+        grid-row: 1 / span 2;
+    }
+
+    .principal {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        grid-template-areas: 
+            "titulo-pagina titulo-pagina titulo-pagina"
+            "destaque-video destaque-video videos-recentes"
+            "secao-videos secao-videos secao-videos"
+            "produtos-recentes destaque-produtos destaque-produtos"
+            "secao-produtos secao-produtos secao-produtos"
+        ;
+        column-gap: 32px;
+        padding: 16px 60px;
+        grid-column: 2;
+    }
+
+    .secao-titulo {
+        grid-column: span 4;
+    }
+
     .cartao-destaque {
         margin-bottom: 0;
     }
@@ -356,18 +361,9 @@ body {
 
     .cartao-item-perfil {
         font-size: 0.8rem;
-        line-height: 1.2rem;
-        font-weight: 700;
         color: #95999C;
     }
-}
 
-.secao {
-    display: grid;
-    gap: 16px;
-}
-
-@media screen and (min-width: 1440px) {
     .secao {
         grid-template-columns: repeat(4, 1fr);
     }
@@ -385,7 +381,7 @@ body {
     }
     
     .destaque-produtos {
-        grid-area: destaque-produto;
+        grid-area: destaque-produtos;
     }
     
     .produtos-recentes {
@@ -395,9 +391,4 @@ body {
     .secao-produtos {
         grid-area: secao-produtos;
     }
-}
-
-.titulo-secao {
-    font-size: 1.2rem;
-    font-weight: 700;
 }
